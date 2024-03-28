@@ -15,7 +15,7 @@
                         <i class="fas fa-home"></i>HOME
                     </a>
                 </li>
-                <li class="nav-item"><a class="nav-link active" href="">Products</a></li>
+                <li class="nav-item"><a class="nav-link active" [routerLink]="['/products']">Products</a></li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,11 +50,11 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link active" href=""><i class="fas fa-sign-in-alt"></i>LOGIN</a>
+                        <a class="nav-link active" [routerLink]="['/userLogin']"><i class="fas fa-sign-in-alt"></i>LOGIN</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link active" href="">REGISTER</a></li>
+                    <li class="nav-item"><a class="nav-link active" [routerLink]="['/userRegister']">REGISTER</a></li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="">ADMIN</a>
+                        <a class="nav-link active" [routerLink]="['/adminLogin']">ADMIN</a>
                     </li>
             </ul>
         </div>

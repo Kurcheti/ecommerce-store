@@ -9,13 +9,22 @@ import { FooterComponentComponent } from './footer-component/footer-component.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';  
 import { CommonModule } from '@angular/common';
+import { ProductModule } from './product-module/product-module';
+import { UserLoginComponent } from './user-module/user-login/user-login.component';
+import { UserRegisterComponent } from './user-module/user-register/user-register.component';
+import { ForgotPasswordComponent } from './user-module/forgot-password/forgot-password.component';
+import { ViewProductComponent } from './product-module/view-product/view-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponentComponent,
     NavbarComponentComponent,
-    FooterComponentComponent
+    FooterComponentComponent,
+    UserLoginComponent,
+    UserRegisterComponent,
+    ForgotPasswordComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +32,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent]

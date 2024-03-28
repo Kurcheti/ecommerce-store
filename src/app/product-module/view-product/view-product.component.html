@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>View Product</title>
+</head>
+
+<body>
+    <div class="container card-sh" style="margin-top: 70px">
+        <div class="row">
+            <p class="fs-3 text-center">Product Details</p>
+
+            <div class="alert alert-success text-center" role="alert" style="display: none;" name="successMessage">
+            </div>
+
+            <div class="col-md-12 paint-card p-5">
+                <div class="row">
+                    <div class="col-md-6 text-end">
+                        <img alt="" src="assets/img/product_img/{{product.productImage}}" width="330px" height="400px">
+                    </div>
+                    <div class="col-md-6">
+
+                        <p class="fs-3">{{product.productName}}</p>
+                        <p>
+                            <span class="fw-bold">Description : </span><br>{{product.descrption}}
+                        </p>
+                        <p>
+                            <span class="fw-bold"> Product Details: </span> <br>Status :
+                            <span class="badge bg-success" *ngIf="product.stock > 0; else outOfStock">Available</span>
+                            <ng-template #outOfStock>
+                            <span class="badge bg-warning">out of stock</span>
+                            </ng-template>
+                            <br> Category :{{product.category.categoryName}} <br> Policy : 7 Days Replacement &Return
+                        </p>
+                        <p class="fs-5 fw-bold">
+                            Price :&nbsp; &nbsp; &nbsp; &nbsp;<i class="fas fa-rupee-sign"></i> {{product.price}}
+                            <span class="fs-6 text-decoration-line-through text-secondary">{{product.discountBeforePrice}}</span>
+                            <span class="fs-6  text-success"> {{product.discount}}% off</span>
+                        </p>
+
+                        <div class="row">
+                            <div class="col-md-4 text-danger text-center p-2">
+                                <i class="fas fa-money-bill-wave fa-2x"></i>
+                                <p>Cash On Delivery</p>
+                            </div>
+                            <div class="col-md-4 text-danger text-center p-2">
+                                <i class="fas fa-undo-alt fa-2x"></i>
+                                <p>Return Available</p>
+                            </div>
+                            <div class="col-md-4 text-danger text-center p-2">
+                                <i class="fas fa-truck-moving fa-2x"></i>
+                                <p>Free Shipping</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

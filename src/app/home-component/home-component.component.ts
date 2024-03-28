@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeServiceService } from './service/home-service.service';
+import { BehaviorSubject } from 'rxjs';
+import { ProductService } from '../product-module/product-component/service/product-service';
 
 @Component({
   selector: 'app-home-component',
@@ -8,12 +9,10 @@ import { HomeServiceService } from './service/home-service.service';
 })
 export class HomeComponentComponent implements OnInit{
 
-  products : any;
-  categories: any;
-  productImagesPath: any = 'D://ecommerce/img/product_img';
-  categoryImagesPath: any = 'D://ecommerce/img/category_img';
+  products !: any;
+  categories !: any;
 
-  constructor(private homeService: HomeServiceService){}
+  constructor(private productService: ProductService){}
 
   ngOnInit(): void {
     this.getProducts();
@@ -23,13 +22,13 @@ export class HomeComponentComponent implements OnInit{
   }
 
   getProducts(){
-    this.homeService.getProducts().subscribe(data =>{  
-      this.products = data;  
+    this.productService.getProducts().subscribe(data =>{  
+      this.products = data;
       })  
   }
 
   getCategories(){
-    this.homeService.getCategories().subscribe(data =>{  
+    this.productService.getCategories().subscribe(data =>{  
       this.categories = data;  
       })  
   }

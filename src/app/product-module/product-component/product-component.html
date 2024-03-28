@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Ecom : Product Page</title>
+</head>
+
+<body style="background-color: #f0f1f2;">
+        <div class="container-fluid p-4 mt-5 bg-custom">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <form action="" method="">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" id="search" [(ngModel)]="searchText" (ngModelChange)="searchKey($event)" ngModel>
+                            <button class="btn bg-primary ms-2 col-md-2 text-light">
+                                <i class="fa-solid fa-magnifying-glass"></i> Search
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-1">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="fs-5 text-center">Categories</p>
+                            <div class="list-group" style="width: 100%;">
+                                <a routerLink="." class="list-group-item list-group-item-action" (click)="getProductsByCategory('all')" aria-current="true"> All </a>
+                                <a routerLink="." (click)="getProductsByCategory(category.categoryName)" class="list-group-item list-group-item-action" *ngFor="let category of categories">
+                                    {{category.categoryName}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-10 p-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="fs-3 text-center">Product</p>
+                            <div class="row">
+                                <div class="col-md-3" *ngFor="let product of products">
+                                    <div class="card card-sh">
+                                        <div class="card-body">
+                                            <img src="assets/img/product_img/{{product.productImage}}" width="100%" height="150px">
+                                            <p class="fs-5 text-center">
+                                                {{product.productName}}
+                                            </p>
+                                            <div class="row text-center">
+                                                <p class="fs-6 fw-bold">
+                                                    &#8377;{{product.price}}
+                                                    <span class="fs-7 text-decoration-line-through text-secondary" *ngIf="product.discount > 0">
+                                                        {{product.discountBeforePrice}}
+                                                    </span>
+                                                    <span class="fs-6  text-success">
+                                                        {{product.discount}}% off
+                                                    </span>
+                                                </p>
+                                                <a class="btn btn-sm btn-primary col-md-6 ms-5" [routerLink]="['/viewProduct',product.productId]">View Details</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
